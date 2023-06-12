@@ -60,7 +60,7 @@ The dist folder contains the builds that are compiled and bundled during the bui
 
 It is a configuration can be made to project in package.json. This ensures what versions of browser the application is supported.
 
-- ^ and ~ in package.json
+- ~ and ^ in package.json
 
 ~ deals with patches. If 3.8.1 is current version, ~ apply new patches of 3.8.X to our project.
 
