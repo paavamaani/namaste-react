@@ -64,4 +64,4 @@ When HTML parsing is being done and browser encounter script tag, The HTML parsi
 
 When HTML parsing is being done and browser encounter script tag, The HTML parsing continues while fetching script. After HTML parsing is done, the script is executed.
 
-![asyncDefer](assets/asyncDefer.png)
+<img src="assets/asyncDefer.png" alt="asyncDefer">
