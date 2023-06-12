@@ -1,0 +1,67 @@
+- What is Emmet?
+
+Emmet is plug in for code editors to improve workflow. We can generate HTML, CSS with short expressions.
+
+- Difference between a Library and Framework
+
+Library: Library is a collection of some prewritten code. That can be used to simply tasks. We can import or include library in project and use it. We are in charge of the application.
+
+Framework: Framework provides the skeleton with the tools for developing applications. Framework decide the application flow, structure and interaction between components. Framework is in charge of application. But, it simplify development process by offering pre defined structure and patterns.
+
+- What is CDN? Why do we use it?
+
+A CDN is content delivery network, it has distributed network of servers in different geographical locations. The user is routed to nearest server from his location. The servers cache frequently accessed files improving the performance.
+
+CDN is also used to host JS files, dependencies on servers in different locations and include them in web page using script tag.
+
+Request is sent to nearest server. This reduce latnecy and improve download speed.
+
+Server caches the files and subsequent requests are processed from cache. This reduces load on server.
+
+- Why is React known as React?
+
+React is known as React because of its reactive nature. The name reflects core philosophy and approach to develop user interfaces.
+
+The core idea is to develop reusable UI components which can be rendered and efficiently updated based on change in application state. It basically reacts to change in data and update the user interface.
+
+React uses virtual DOM to efficiently update actual DOM.
+
+- What is cross-origin in script tag?
+
+Cross-origin in script tag specifies how browser should handle cross-orign requests made by the script.
+
+cross-origin is "anonymous" by default. Which means script doesn't require any credentials to be sent to server.
+
+cross-origin is "use-credentials" if script requires credentials to be sent to server. Such as cookies or authentication token.
+
+The server that host the JS files must include response header 'Access-Control-Allow-Origin' with '*' which mean resource is accessible by any domain or 'domain' which mean access to resource from particular domain. If not, same origin policy is applied by browser to prevent access to cross-origin resource sharing.
+
+- What is difference between React and React DOM?
+
+React library includes the core functionalities of React such as Hooks, state management
+
+React DOM library takes care of rendering the React components to browser DOM. It has APIs and methods to render react components to browser DOM. It acts as bridge between React and browser DOM.
+
+- What is difference between react.development.js and react.production.js files via CDN?
+
+Development version is used for development purpose which has additional code for warnings and debugging. The file size is larger.
+
+Production verison is optimized and minified version. It doesn't include any additional code related to development purpose. The file size is smaller, resulting in less memory usage and faster execution.
+
+- What are async and defer in script tag?
+
+There are 3 different ways of loading script in HTML
+
+<!-- <script src="script.js" /> -->
+
+When HTML parsing is being done and browser encounter script tag, the HTML parsing is stopped. The script is fetched and executed. Browser continues with HTML parsing.
+
+<!-- <script async src="script.js" /> -->
+
+When HTML parsing is being done and browser encounter script tag, The HTML parsing continues while fetching script. Once the script is fetched, the HTML parsing is stopped and script is executed. After script execution, browser continues with HTML parsing.
+
+<!-- <script defer src="script.js" /> -->
+
+When HTML parsing is being done and browser encounter script tag, The HTML parsing continues while fetching script. After HTML parsing is done, the script is executed.
+
+![asyncDefer](assets/asyncDefer.png)
