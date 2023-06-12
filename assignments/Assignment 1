@@ -63,5 +63,3 @@ When HTML parsing is being done and browser encounter script tag, The HTML parsi
 <!-- <script defer src="script.js" /> -->
 
 When HTML parsing is being done and browser encounter script tag, The HTML parsing continues while fetching script. After HTML parsing is done, the script is executed.
-
-<img src="assets/asyncDefer.png" alt="asyncDefer">
