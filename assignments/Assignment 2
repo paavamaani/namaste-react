@@ -1,0 +1,69 @@
+- What is NPM?
+
+NPM is a node package manager. NPM has all the libraries hosted on its repository. We can use NPM for managing the libraries in our project.
+
+- What is Parcel/Webpack? Why do we need it?
+
+These are bundlers. We need bundles inorder to minify, optimize our files and assets. Whcich can be served to production.
+
+They use variety of optimization techniques:
+
+Minfication
+Tree Shaking
+Bundling
+Differntial Bundling (For older browsers)
+Image Optimization
+
+- What is .parcel-cache?
+
+It is a directory that parcel uses to cache builds. The cached builds can be used to identify changed resources and effectively build subsequent builds resulting in faster builds.
+
+- What is NPX?
+
+NPX is used to exuecute NPM packages or dependencies.
+
+- What is difference between dependencies and devDependencies?
+
+Dependencies are required to run the application. Dev dependencies are dependencies required during the development of application.
+
+The dev dependencies are not required for application to run. So, these are not included in production builds.
+
+- What is Tree Shaking?
+
+Tree shaking is a technique used by bundlers to remove unused code from dependencies during bundling. This creates optimized builds with smaller files for production.
+
+- What is Hot Module Replacement?
+
+The bundlers uses File Watching Algorithm to monitor changes in files. The files changed are rebuilt and bundlers takes care of updating the module with the new changes in the application without affecting the application state.
+
+- What is .gitignore? What should we add and not add into it?
+
+The .gitignore folder contains all the folders that we don't want to push to repository. Anything that can reproduced shouldn't be pushed to repository and should be included in .gitignore.
+
+- What is the difference between package.json and package-lock.json
+
+package.json is configuration file for all our dependencies and package-lock.json file locks the exact version of the package installed for appplication development. The same version is installed in subsequent npm install ignoring the ~ and ^ in package.json. The package-lock.json verison is considered.
+
+- Why should I not modify package-lock.json?
+
+It guarantees that all developers and build environments have the same dependencies, allowing for consistent builds. Modifying the file manually can introduce inconsistencies and lead to unpredictable behavior.
+
+- What is node_modules? Is it a good idea to push that on git?
+
+The node_modules is folder or repository in project that contains all the dependencies installed. The node_modules shouldn't be pushed to repository as all dependencies can be installed from package.json and package-lock.json.
+
+- What is the dist folder?
+
+The dist folder contains the builds that are compiled and bundled during the build process. It includes minified and optimized versions of HTML, CSS, JS and assets. Which can be served to production.
+
+- What is browserlists?
+
+It is a configuration can be made to project in package.json. This ensures what versions of browser the application is supported.
+
+- ^ and ~ in package.json
+
+~ deals with patches. If 3.8.1 is current version, ~ apply new patches of 3.8.X to our project.
+
+^ deals with minor changes and patches. If 3.8.1 is current version, ^ apply new minor changes and patches of 3.X.X to our project.
+
+The ~ and ^ are part of package.json dependecies version. If package-lock.json is available the subsequent installs are based on package-lock.json with exact version of dependency. This ensures all the developers are working with same dependencies.
