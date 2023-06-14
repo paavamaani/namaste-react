@@ -1,0 +1,8 @@
+What is JSX?
+
+JSX is XML like structure in JavaScript. By using JSX we can write more cleaner and readable code. We can also execute JavaScript in JSX.
+
+Role of type attribute in script tag?
+
+We can indicate that script is a JS module using type "module". we can also use "nomodule" for older browsers
+
