@@ -1,0 +1,23 @@
+- What is difference between named export and default export?
+
+There can be one default export for every component and any number of named exports.
+
+The default export is imported with same export name or any name.
+
+The named export is imported with {sameComponentName} or {sameComponentName as differentComponentName}
+
+- What is '\*' as import?
+
+When multiple components are exported from a file. We can import all components using {'\*' as myComponent} and access components using myComponent.Component1, myComponent.Component2
+
+- What is importance of config.js file?
+
+It is used to store the constant values and export them instead of hardcoding.
+
+- What are React Hooks?
+
+React hooks are the special JS functions provided by React to manage and update the UI efficiently.
+
+- Why we need useState Hook?
+
+We need useState hook to managae state of a component. When there is a change in state the component is rerendered efficiently with new changes to Actual DOM.

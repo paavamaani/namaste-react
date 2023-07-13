@@ -1,0 +1,79 @@
+- Is JSX mandatory for React?
+
+No. JSX is just a cleaner way of writing components for better readability. React uses React elements. In fact JSX is also converted to React elements in the end.
+
+- Is Es6 mandatory for React?
+
+No.
+
+- How can I write comments in JSX?
+
+{/_ Comment _/}
+
+- What is React Fragment?
+
+We can only return one parent from component in React. So, React Fragment is used to wrap the child components in a Fragment and avoid unnecessary elements rendered in DOM. <React.Fragment></React.Fragnent> or <></>
+
+- What is Virtual DOM?
+
+Virtual DOM is representation of Actual DOM. It is a JS object built from the components.
+
+- What is Reconciliation?
+
+When there is a change in component new Virtual DOM tree is built and the diffing algorithm identifies differences between new Virtual DOM tree and old Virtual DOM tree and make changes to actual DOM. This process is called Reconciliation.
+
+- What is React Fiber?
+
+React Fiber is a new reconciliation algorithm that React uses from React 16. With React Fiber we can have incremental updates, time-slicing, priority for updates, error handling.
+
+Fiber: Fiber is an instance of a component in React.
+
+Fiber Tree: The React creates a Fiber tree from individual fiber nodes. It is a tree with additional properties like state node, first child, child's first sibling, key, props in it.
+
+After the React Fiber the reconciliation process is not with virtual DOM but with Fiber Tree and Work-in-progress Tree.
+
+Work-in-progress Tree: This is constructed by traversing Fiber Tree and this contains all the change to be applied to Actual DOM.
+
+In React Fiber there are two phases Render / Reconciliation and Commit
+
+Render / Reconciliation: This phase can be interrupted
+
+React Fiber builds Fiber Tree from Fiber nodes. When there is a change in component the updates are scheduled. If main thread is free React starts building Work-in-progress tree. If not, React now makes call to requestIdleCallback for main thread saying to come back to do some work for React when free.
+
+When the main thread is available, React processes the updates in a incremental manner. React start traversing Fiber Tree (current tree) and when there is a update, React tags the item for update to Actual DOM.
+
+Also, React keeps track of the time available for React to use Main thread. If main thread need to process any high priority task it free's the thread and issue requestIdleCallback to come back once free. This is called interrupt. In the reconciliation phase interruption is allowed.
+
+When main thread is free, React processes the sibling in same manner. And, it repeat same process of tagging and tracking of main thread while building Work-in-progress tree.
+
+Here you can see the Work-in-progress tree is built by traversing Fiber Tree in chunks and spreading over multiple frames. This ensure not blocking main thread. This is how React use time-slicing in reconciliation phase to improve performance and smooth rendering in complex application.
+
+When it is done with traversing entire Fiber tree the Work-in-progress tree is ready for commit.
+
+Commit phase: This phase can't be interrupted
+
+The React moves all changes that Work-in-progress tree has in one batch to Actual DOM.
+
+After Commit phase: Now the Work-in-progress tree is current upto-date tree with Actual DOM.
+
+So, React smartly swaps the Fiber Tree pointer (current pointer) with Work-in-progress Tree pointer. Now, the Fiber Tree (current tree) is upto-date with Actual DOM. And, Work-in-progress Tree is in 'in progress' state for future update. React efficiently does this to avoid time used for memory allocation and garbage collection.
+
+Then after all the change tagged and moved to Actual DOM are kept in effect state. Which React travers and update refs in this point.
+
+Priorities: React also provide possibility to prioritize tasks. The higher priority tasks interrupt lower priority tasks. This might lead to starvation of lower priority tasks if there are many high priority tasks. React is currently working on that.
+
+- Why we need keys in React?
+
+React uses keys to uniquely identify the changes and efficiently update DOM. If keys are not unique, it result in inconsistencies in UI.
+
+- Can we use index as keys in React?
+
+Yes. But, we should not use indexes as keys as it will have impact if the data is sorted or appended with new values in the beginning.
+
+- What are props?
+
+Props are input to component from parent. Which usually include attributes, children.
+
+- What is Config Driven UI?
+
+Config Driven UI is UI driven by data. The UI is changed based on data.
